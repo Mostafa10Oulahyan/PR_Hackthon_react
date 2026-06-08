@@ -1,15 +1,9 @@
 import React, { useState, useEffect } from 'react';
 
-// Hardcoded members list to match backend seeded IDs
-const MEMBERS_LIST = [
-  { id: 1, nom: 'Dupont', prenom: 'Jean', email: 'jean.dupont@email.com' },
-  { id: 2, nom: 'Curie', prenom: 'Marie', email: 'marie.curie@email.com' },
-  { id: 3, nom: 'Einstein', prenom: 'Albert', email: 'albert.einstein@email.com' }
-];
-
 const ApiBorrowings = () => {
   const [emprunts, setEmprunts] = useState([]);
   const [availableBooks, setAvailableBooks] = useState([]);
+  const [availableMembers, setAvailableMembers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [submitLoading, setSubmitLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -39,6 +33,12 @@ const ApiBorrowings = () => {
       const bookData = await bookRes.json();
       // Only show books that have positive copy count
       setAvailableBooks(bookData.filter(b => b.nombre_exemplaires > 0));
+
+      // 3. Fetch members to populate form
+      const memRes = await fetch('https://pr-hackthon-lrv.vercel.app/api/membres');
+      if (!memRes.ok) throw new Error('Failed to fetch members');
+      const memData = await memRes.json();
+      setAvailableMembers(memData);
     } catch (err) {
       console.error(err);
       setError('Impossible de se connecter à l\'API Laravel sur Vercel (https://pr-hackthon-lrv.vercel.app).');
@@ -165,7 +165,7 @@ const ApiBorrowings = () => {
                 disabled={loading}
               >
                 <option value="" disabled>-- Choisir un membre --</option>
-                {MEMBERS_LIST.map(m => (
+                {availableMembers.map(m => (
                   <option key={m.id} value={m.id}>
                     {m.prenom} {m.nom} ({m.email})
                   </option>

@@ -238,6 +238,11 @@ label {
   width: 100%;
 }
 
+select.form-control option {
+  background-color: #0d1423;
+  color: var(--text-main);
+}
+
 .form-control:focus {
   border-color: var(--primary);
   box-shadow: 0 0 0 3px var(--primary-glow);
