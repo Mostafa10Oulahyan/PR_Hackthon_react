@@ -9,7 +9,7 @@ const ApiBooks = () => {
     setLoading(true);
     setError(null);
     try {
-      const response = await fetch('http://localhost:8000/api/livres');
+      const response = await fetch('https://pr-hackthon-lrv.vercel.app/api/livres');
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
@@ -17,7 +17,7 @@ const ApiBooks = () => {
       setLivres(data);
     } catch (err) {
       console.error('API Fetch Error:', err);
-      setError('Impossible de se connecter à l\'API Laravel. Assurez-vous que le serveur PHP (port 8000) fonctionne.');
+      setError('Impossible de se connecter à l\'API Laravel sur Vercel (https://pr-hackthon-lrv.vercel.app).');
     } finally {
       setLoading(false);
     }
@@ -33,7 +33,7 @@ const ApiBooks = () => {
         <div>
           <h1 className="page-title">Livres (Depuis API Laravel)</h1>
           <p style={{ color: 'var(--text-muted)' }}>
-            Consommation dynamique du point de terminaison REST de notre backend Laravel: <code>GET http://localhost:8000/api/livres</code>
+            Consommation dynamique du point de terminaison REST de notre backend Laravel: <code>GET https://pr-hackthon-lrv.vercel.app/api/livres</code>
           </p>
         </div>
         <button className="btn btn-secondary" onClick={fetchBooks} disabled={loading}>

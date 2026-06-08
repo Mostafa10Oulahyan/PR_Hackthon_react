@@ -28,20 +28,20 @@ const ApiBorrowings = () => {
     setError(null);
     try {
       // 1. Fetch borrowings
-      const empRes = await fetch('http://localhost:8000/api/emprunts');
+      const empRes = await fetch('https://pr-hackthon-lrv.vercel.app/api/emprunts');
       if (!empRes.ok) throw new Error('Failed to fetch borrowings');
       const empData = await empRes.json();
       setEmprunts(empData);
 
       // 2. Fetch books to populate form
-      const bookRes = await fetch('http://localhost:8000/api/livres');
+      const bookRes = await fetch('https://pr-hackthon-lrv.vercel.app/api/livres');
       if (!bookRes.ok) throw new Error('Failed to fetch books');
       const bookData = await bookRes.json();
       // Only show books that have positive copy count
       setAvailableBooks(bookData.filter(b => b.nombre_exemplaires > 0));
     } catch (err) {
       console.error(err);
-      setError('Impossible de se connecter à l\'API Laravel. Assurez-vous que le serveur PHP (port 8000) fonctionne.');
+      setError('Impossible de se connecter à l\'API Laravel sur Vercel (https://pr-hackthon-lrv.vercel.app).');
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ const ApiBorrowings = () => {
     setSubmitLoading(true);
     setAlert(null);
     try {
-      const response = await fetch('http://localhost:8000/api/emprunts', {
+      const response = await fetch('https://pr-hackthon-lrv.vercel.app/api/emprunts', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,7 +106,7 @@ const ApiBorrowings = () => {
         <div>
           <h1 className="page-title">Emprunts (API Intégration Directe)</h1>
           <p style={{ color: 'var(--text-muted)' }}>
-            Consommation dynamique du point de terminaison REST de notre backend Laravel: <code>GET & POST http://localhost:8000/api/emprunts</code>
+            Consommation dynamique du point de terminaison REST de notre backend Laravel: <code>GET & POST https://pr-hackthon-lrv.vercel.app/api/emprunts</code>
           </p>
         </div>
         <button className="btn btn-secondary" onClick={fetchData} disabled={loading}>
