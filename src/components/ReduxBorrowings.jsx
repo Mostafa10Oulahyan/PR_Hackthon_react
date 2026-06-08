@@ -85,7 +85,11 @@ const ReduxBorrowings = () => {
 
       {alert && (
         <div className={`alert ${alert.type === 'success' ? 'alert-success' : 'alert-danger'}`}>
-          <span>{alert.type === 'success' ? '✓' : '⚠️'}</span>
+          {alert.type === 'success' ? (
+            <svg style={{ width: '1.1rem', height: '1.1rem', flexShrink: 0 }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          ) : (
+            <svg style={{ width: '1.1rem', height: '1.1rem', flexShrink: 0 }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+          )}
           <span>{alert.text}</span>
         </div>
       )}
@@ -94,7 +98,7 @@ const ReduxBorrowings = () => {
         {/* Section: Ajouter Emprunt Form */}
         <div className="glass-card">
           <h2 className="section-title">
-            <span style={{ fontSize: '1.25rem' }}>➕</span> Ajouter un Emprunt (Local)
+            <span style={{ fontSize: '1.25rem' }}><svg style={{ width: '1.25rem', height: '1.25rem', display: 'inline-block', verticalAlign: 'middle' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" /></svg></span> Ajouter un Emprunt (Local)
           </h2>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
@@ -166,7 +170,7 @@ const ReduxBorrowings = () => {
         {/* Section: Liste des Emprunts */}
         <div className="glass-card">
           <h2 className="section-title">
-            <span style={{ fontSize: '1.25rem' }}>📋</span> Liste des Emprunts
+            <span style={{ fontSize: '1.25rem' }}><svg style={{ width: '1.25rem', height: '1.25rem', display: 'inline-block', verticalAlign: 'middle' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" /></svg></span> Liste des Emprunts
           </h2>
           <div className="table-container">
             {emprunts.length > 0 ? (

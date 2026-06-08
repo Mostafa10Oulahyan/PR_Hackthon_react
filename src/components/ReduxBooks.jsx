@@ -62,7 +62,9 @@ const ReduxBooks = () => {
           </div>
         ) : (
           <div style={{ textAlign: 'center', padding: '3rem', color: 'var(--text-muted)' }}>
-            <span style={{ fontSize: '2.5rem', display: 'block', marginBottom: '1rem' }}>🔍</span>
+            <svg style={{ width: '2.5rem', height: '2.5rem', display: 'block', margin: '0 auto 1rem', opacity: 0.4 }} fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 15.803 7.5 7.5 0 0016.803 15.803z" />
+            </svg>
             <h3>Aucun livre ne correspond au filtre.</h3>
           </div>
         )}

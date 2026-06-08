@@ -6,7 +6,6 @@ import ReduxBorrowings from './components/ReduxBorrowings';
 import ApiBooks from './components/ApiBooks';
 import ApiBorrowings from './components/ApiBorrowings';
 
-// Beautiful dashboard home view
 const Home = () => {
   return (
     <div style={{ animation: 'fadeIn 0.6s ease-in-out' }}>
@@ -22,17 +21,26 @@ const Home = () => {
           Une plateforme moderne et performante de gestion de bibliothèque. Cette application implémente l'intégralité du cahier des charges de l'examen pratique de Développement Digital.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-          <a href="http://localhost:8000" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '0.75rem 1.5rem' }}>
-            🖥️ Accéder à l'Admin Blade (Laravel)
+          <a href="http://localhost:8000" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '0.75rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <svg style={{ width: '1rem', height: '1rem' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            Accéder à l'Admin Blade (Laravel)
           </a>
-          <a href="http://localhost:8000/api/livres" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '0.75rem 1.5rem' }}>
-            🔌 Tester la Route API REST
+          <a href="http://localhost:8000/api/livres" target="_blank" rel="noopener noreferrer" className="btn btn-secondary" style={{ padding: '0.75rem 1.5rem', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+            <svg style={{ width: '1rem', height: '1rem' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+            </svg>
+            Tester la Route API REST
           </a>
         </div>
       </div>
 
       <h2 style={{ fontSize: '1.75rem', fontWeight: '700', marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-        🚀 Explorer les Dossiers de l'Examen
+        <svg style={{ width: '1.5rem', height: '1.5rem', color: '#a78bfa' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+        Explorer les Dossiers de l'Examen
       </h2>
 
       <div className="grid-2">
@@ -40,8 +48,12 @@ const Home = () => {
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
-              <span style={{ fontSize: '2.5rem' }}>⚛️</span>
-              <span className="badge badge-success">Dossier 3 & 4A</span>
+              <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '12px', background: 'rgba(139,92,246,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg style={{ width: '1.5rem', height: '1.5rem', color: '#a78bfa' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4" />
+                </svg>
+              </div>
+              <span className="badge badge-success">Dossier 3 &amp; 4A</span>
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '0.75rem', color: 'white' }}>
               Gestion d'État avec Redux Local
@@ -52,10 +64,10 @@ const Home = () => {
           </div>
           <div style={{ display: 'flex', gap: '0.75rem' }}>
             <Link to="/redux-livres" className="btn btn-primary" style={{ flex: 1, fontSize: '0.85rem' }}>
-              📚 Liste Livres
+              Livres (Redux)
             </Link>
             <Link to="/redux-emprunts" className="btn btn-secondary" style={{ flex: 1, fontSize: '0.85rem' }}>
-              🔄 Emprunter
+              Emprunts (Redux)
             </Link>
           </div>
         </div>
@@ -64,7 +76,11 @@ const Home = () => {
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
           <div>
             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '1.5rem' }}>
-              <span style={{ fontSize: '2.5rem' }}>🔌</span>
+              <div style={{ width: '2.75rem', height: '2.75rem', borderRadius: '12px', background: 'rgba(20,184,166,0.12)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg style={{ width: '1.5rem', height: '1.5rem', color: '#2dd4bf' }} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+              </div>
               <span className="badge badge-warning">Dossier 4B</span>
             </div>
             <h3 style={{ fontSize: '1.4rem', fontWeight: '700', marginBottom: '0.75rem', color: 'white' }}>
@@ -76,15 +92,15 @@ const Home = () => {
           </div>
           <div style={{ display: 'flex', gap: '0.75rem' }}>
             <Link to="/api-livres" className="btn btn-primary" style={{ flex: 1, fontSize: '0.85rem' }}>
-              📂 API Livres
+              Livres (API)
             </Link>
             <Link to="/api-emprunts" className="btn btn-secondary" style={{ flex: 1, fontSize: '0.85rem' }}>
-              ⚡ API Emprunts
+              Emprunts (API)
             </Link>
           </div>
         </div>
       </div>
-      
+
       <style>{`
         @keyframes fadeIn {
           from { opacity: 0; transform: translateY(15px); }
@@ -100,7 +116,7 @@ function App() {
     <Router>
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
-        
+
         <main className="app-container" style={{ flex: '1' }}>
           <Routes>
             <Route path="/" element={<Home />} />
